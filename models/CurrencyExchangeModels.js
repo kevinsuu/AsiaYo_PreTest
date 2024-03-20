@@ -23,7 +23,7 @@ class CurrencyExchangeModels {
     if (!/^\d+(\.\d+)?$/.test(amount) || isNaN(parseFloat(amount))) {
       throw new Error(`Amount must be in valid format and a number`);
     }
-
+    amount = Math.round(parseFloat(amount) * 100) / 100;
     const result = Math.round(amount * exchangeRates[source][target] * 100) / 100;
     const formattedResult = result.toLocaleString();
     return formattedResult;
