@@ -1,0 +1,84 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Currency Exchange API",
+      "version": "1.0.0",
+      "description": "API for currency exchange"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3001/api"
+      }
+    ],
+    "paths": {
+      "/currencyExchange": {
+        "get": {
+          "summary": "Currency Exchange",
+          "parameters": [
+            {
+              "name": "source",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "examples": {
+                "case1": {
+                  "value": "TEST",
+                  "summary": "source 為系統並不提供"
+                }
+              }
+            },
+            {
+              "name": "target",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "examples": {
+                "case1": {
+                  "value": "TEST",
+                  "summary": "target 為系統並不提供"
+                }
+              }
+            },
+            {
+              "name": "amount",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "examples": {
+                "case1": {
+                  "value": "ABC",
+                  "summary": "輸入的金額為非數字或無法辨認時"
+                },
+                "case2": {
+                  "value": "100",
+                  "summary": "正常側資"
+                },
+                "case3": {
+                  "value": "123.456",
+                  "summary": "四捨五入到小數點第二位"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {}
+    }
+  }
+  
