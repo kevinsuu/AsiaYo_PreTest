@@ -16,6 +16,6 @@ exports.CurrencyExchangeService = async (req, res) => {
     res.json({ msg: "success", amount: result.toString() });
   } catch (err) {
     console.log(err.message);
-    res.status(400).json({ msg: "failed" });
+    res.status(400).json({ msg: err.message });
   }
 };
